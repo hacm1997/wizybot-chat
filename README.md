@@ -50,20 +50,37 @@ http://localhost:5173/
 ## Project Structure
 
 ├── src/
+
 │ ├── assets/ # Static assets
+
 │ ├── components/ # Reusable components (atomic design)
-│ └──└── atoms/  
-│ └──└── molecules/  
-│ └──└── organisms/  
-│ └──└── templates/  
+
+│ └──└── atoms/
+
+│ └──└── molecules/
+
+│ └──└── organisms/
+
+│ └──└── templates/
+
 │ ├── const/ # Global constants
+
 │ ├── hooks/ # Custom hooks
+
 │ ├── store.tsx # Zustand storage
+
 │ ├── types/ # Interfaces or types
+
 │ ├── utils/ # Custom dynamic fucntions
+
 │ └── main.tsx # Entry point
+
 │ └── index.css # Global CSS configuration
+
 ├── public/ # Public files
+
 ├── index.html # Main HTML file
+
 ├── vite.config.ts # Vite configuration
+
 └── tsconfig.json # TypeScript configuration
