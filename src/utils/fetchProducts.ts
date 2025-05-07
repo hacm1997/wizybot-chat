@@ -3,7 +3,7 @@ import type { Product } from "../types/product";
 {
   /* Fuction to get produtc */
 }
-export const fetchRandomProducts = async (): Promise<Product[]> => {
+export const fetchProducts = async (): Promise<Product[]> => {
   try {
     const response = await fetch(
       "https://api.wizybot.com/products/demo-product-list"
