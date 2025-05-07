@@ -1,6 +1,6 @@
 import { SUCCESS_RESPONSE } from "../const/gloab-consts";
 import type { Message } from "../types/message";
-import { fetchRandomProducts } from "./fetchRandomProducts";
+import { fetchProducts } from "./fetchProducts";
 import { getCurrentTime } from "./getCurrentTime";
 
 // Function to get bot responses
@@ -12,7 +12,7 @@ export const generateBotResponse = async (
 
   // If user write the correct sentence between get products
   if (lowerCaseInput === SUCCESS_RESPONSE) {
-    const products = await fetchRandomProducts();
+    const products = await fetchProducts();
 
     return {
       id: idCount++, // Unique id by message
