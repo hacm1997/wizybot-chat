@@ -58,7 +58,7 @@ export default function ChatBotBox({ name, isOpen }: ChatBotBoxProps) {
 
     const HelperText = () => (
         <div className="p-1 bg-blue-100 rounded-2xl text-center mb-2">
-            <span className="text-gray-400 text-[12px] font-semibold">For help type “Help”.</span>
+            <span className="text-gray-400 text-[12px] font-semibold">For more options write “Help”</span>
         </div>
     )
 
