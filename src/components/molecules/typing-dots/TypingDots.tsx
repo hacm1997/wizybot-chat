@@ -1,3 +1,4 @@
+{/* Dots that display when Wizybot is thinking */ }
 export default function TypingDots() {
     return (
         <span className="flex space-x-1 p-2">

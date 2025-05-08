@@ -7,6 +7,7 @@ import type { NameFormProps } from "./name-form.module";
 export default function NameForm({ onSubmit }: NameFormProps) {
     const [name, setName] = useState("");
 
+    // Function to submit name
     const handleSubmit = () => {
         if (name !== '' && name.trim()) {
             onSubmit(name);

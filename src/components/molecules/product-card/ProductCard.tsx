@@ -1,6 +1,7 @@
 import type { ProductCardProps } from "./product-card.model";
 import styles from '../../../utils/styles.module.css';
 
+{/* Dynamic Product Card */ }
 export default function ProductCard({ product }: ProductCardProps) {
 
     return (

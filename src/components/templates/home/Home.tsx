@@ -3,6 +3,7 @@ import { Text } from "../../atoms";
 import { AnimatedText } from "../../molecules/animated-text";
 import { FloatingGroup } from "../../organisms";
 
+// Content all landing home components
 export default function Home() {
     const [name, setName] = useState<string | null>(null);
     return (

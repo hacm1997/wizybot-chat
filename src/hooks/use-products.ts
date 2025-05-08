@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import type { Product } from "../types/product";
 
+{
+  /* Custom hook for user in any component */
+}
 export const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);

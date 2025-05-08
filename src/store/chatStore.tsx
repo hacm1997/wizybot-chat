@@ -12,6 +12,7 @@ type ChatState = {
     setIsTyping: (val: boolean) => void;
 };
 
+// Zustand Storage for chat persistence when user minimize the chat
 export const useChatStore = create<ChatState>((set) => ({
     messages: [
         {

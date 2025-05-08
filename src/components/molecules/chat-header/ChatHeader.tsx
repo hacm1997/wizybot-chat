@@ -17,6 +17,7 @@ export default function ChatHeader({ name, hiddenChat, closeChat }: ChatHeaderPr
                 }
             </div>
             <div>
+                {/* Change Arrow Icon when chat is open or closed */}
                 {hiddenChat === true ?
                     <ArrowDown width="30px" cursor="pointer" onClick={closeChat} />
                     :
