@@ -3,3 +3,26 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+.scrollChatContainer {
+  scrollbar-color: #334B8C #f1f1f1;
+}
+
+/* Chrome, Edge y Safari */
+.scrollChatContainer::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.scrollChatContainer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scrollChatContainer::-webkit-scrollbar-thumb {
+  background: #334B8C;
+  border-radius: 4px;
+}
+
+.scrollChatContainer::-webkit-scrollbar-thumb:hover {
+  background: #334B8C;
+}
