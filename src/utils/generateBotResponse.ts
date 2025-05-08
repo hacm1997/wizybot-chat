@@ -1,12 +1,16 @@
-import { HELP_CHAT, SUCCESS_RESPONSE } from "../const/gloab-consts";
+import {
+  defaultResponses,
+  HELP_CHAT,
+  SUCCESS_RESPONSE,
+} from "../const/gloab-consts";
 import type { Message } from "../types/message";
 import { fetchProducts } from "./fetchProducts";
 import { getCurrentTime } from "./getCurrentTime";
+import { v4 as uuidv4 } from "uuid";
 
 // Function to get bot responses
 export const generateBotResponse = async (
-  inputText: string,
-  idCount: number
+  inputText: string
 ): Promise<Message> => {
   const lowerCaseInput = inputText.toLowerCase();
 
@@ -16,7 +20,7 @@ export const generateBotResponse = async (
       const products = await fetchProducts();
 
       return {
-        id: idCount++, // Unique id by message
+        id: uuidv4(), // Unique id by message
         text: "",
         position: "left",
         type: "carousel",
@@ -27,8 +31,8 @@ export const generateBotResponse = async (
     // Case 2: SHOW THE SENTENCES
     case HELP_CHAT:
       return {
-        id: idCount++,
-        text: "For recommended products write: 'i want product recommendations' ",
+        id: uuidv4(),
+        text: 'For recommended products write: "i want product recommendations"',
         position: "left",
         type: "text",
         timestamp: getCurrentTime(),
@@ -37,11 +41,16 @@ export const generateBotResponse = async (
     // Default case if the senteces is different
     default:
       return {
-        id: idCount++,
-        text: "You must ask the right questions",
+        id: uuidv4(),
+        text: getRandomDefaultResponse(),
         position: "left",
         type: "text",
         timestamp: getCurrentTime(),
       };
   }
+};
+
+const getRandomDefaultResponse = () => {
+  const index = Math.floor(Math.random() * defaultResponses.length);
+  return defaultResponses[index];
 };
