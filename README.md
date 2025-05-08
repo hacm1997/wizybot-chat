@@ -1,8 +1,16 @@
 # WizyBot Chat / React + TypeScript + Vite Project
 
-This is a frontend application built with **React**, **TypeScript**, and **Vite**. Follow the steps below to clone, install, and run the project locally.
+This is a frontend application built with **React**, **TypeScript**, **Tailwind** and **Vite**. Follow the steps below to clone, install, and run the project locally.
 
 ---
+
+## set environment variables
+
+Create the .env file in the root of the project and add the following environment variable:
+
+```bash
+VITE_WIZYBOT_API_URL=https://api.wizybot.com
+```
 
 ## Prerequisites
 
