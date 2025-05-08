@@ -1,7 +1,7 @@
 import type { Product } from "./product";
 
 export type Message = {
-  id: number;
+  id: string;
   text: string;
   position: "left" | "right";
   type?: "text" | "carousel";
