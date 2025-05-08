@@ -1,9 +1,14 @@
 import type { Product } from "../types/product";
 
-{
-  /* Fuction to get produtc */
-}
+// save product if the request do already
+let cachedProducts: Product[] | null = null;
+
+// Fuction to get produtc
 export const fetchProducts = async (): Promise<Product[]> => {
+  // verify  if cached exists
+  if (cachedProducts) {
+    return cachedProducts;
+  }
   try {
     const response = await fetch(
       `${import.meta.env.VITE_WIZYBOT_API_URL}/products/demo-product-list`
@@ -11,9 +16,11 @@ export const fetchProducts = async (): Promise<Product[]> => {
     if (!response.ok) {
       throw new Error(`Failed to fetch products: ${response.statusText}`);
     }
+
     const data = await response.json();
-    // Return Product Array Promise
-    return data.map(
+
+    // Map data y saved in cache
+    cachedProducts = data.map(
       (item: {
         id: string;
         displayTitle: string;
@@ -30,6 +37,8 @@ export const fetchProducts = async (): Promise<Product[]> => {
         type: item.productType,
       })
     );
+
+    return cachedProducts ?? [];
   } catch (error) {
     console.error("Error fetching products:", error);
     throw new Error("Error fetching products from the API");
