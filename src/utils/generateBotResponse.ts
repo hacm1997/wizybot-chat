@@ -28,7 +28,7 @@ export const generateBotResponse = async (
     case HELP_CHAT:
       return {
         id: idCount++,
-        text: "For recommended products wrtie: 'i want product recommendations' ",
+        text: "For recommended products write: 'i want product recommendations' ",
         position: "left",
         type: "text",
         timestamp: getCurrentTime(),
