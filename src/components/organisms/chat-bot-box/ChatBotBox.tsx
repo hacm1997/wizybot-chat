@@ -49,12 +49,18 @@ export default function ChatBotBox({ name, isOpen }: ChatBotBoxProps) {
         }, 3000);
     };
 
-    // Focus in the last message
+    // Focus in the last Bubble Message
     useEffect(() => {
         if (messagesEndRef.current) {
             messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
         }
     }, [messages, isTyping]);
+
+    const HelperText = () => (
+        <div className="p-1 bg-blue-100 rounded-2xl text-center mb-2">
+            <span className="text-gray-400 text-[12px] font-semibold">For help type “Help”.</span>
+        </div>
+    )
 
     return (
         <div className={`${hiddenChat === true ? "w-md" : "w-[200px]"} mx-auto p-4`}>
@@ -65,6 +71,7 @@ export default function ChatBotBox({ name, isOpen }: ChatBotBoxProps) {
             {hiddenChat === true &&
                 <>
                     <div className={`h-[540px] bg-white p-4 shadow overflow-y-auto overflow-x-hidden text-left`}>
+                        <HelperText />
                         {messages.map((msg) => (
                             <MessageBubble key={msg.id} position={msg.position} timestamp={msg.timestamp} type={msg.type}>
                                 {msg.type === "carousel" && msg.products ? (
