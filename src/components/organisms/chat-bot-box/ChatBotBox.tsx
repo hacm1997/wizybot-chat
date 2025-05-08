@@ -7,25 +7,28 @@ import {
 import { getCurrentTime } from "../../../utils/getCurrentTime";
 import type { ChatBotBoxProps } from "./chat-bot-box.model";
 import { useChatStore } from "../../../store/chatStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { generateBotResponse } from "../../../utils/generateBotResponse";
-
-let idCount = 2;
+import { v4 as uuidv4 } from 'uuid';
 
 export default function ChatBotBox({ name, isOpen }: ChatBotBoxProps) {
-    const { messages, input, isTyping, setMessages, setInput, setIsTyping } =
+    const { messages, input, isTyping, initializeChat, setMessages, setInput, setIsTyping } =
         useChatStore(); // Persistence data with Zustand
 
-    const [hiddenChat, setHiddenChat] = useState(!isOpen);
+    useEffect(() => {
+        if (name) initializeChat(name);
+    }, [initializeChat, name]);
+
+    const [isHidden, setIsHidden] = useState(!isOpen);
 
     // Send message function
     const handleSend = async () => {
-        const trimmedInput = input.trim();
-        if (!trimmedInput) return;
+        const trimmed = input.trim();
+        if (!trimmed) return;
 
         const userMessage: Message = {
-            id: idCount++,
-            text: trimmedInput,
+            id: uuidv4(),
+            text: trimmed,
             position: "right",
             type: "text",
             timestamp: getCurrentTime(),
@@ -38,7 +41,7 @@ export default function ChatBotBox({ name, isOpen }: ChatBotBoxProps) {
 
         // Simulate bot thinking delay
         setTimeout(async () => {
-            const botMessage = await generateBotResponse(trimmedInput, idCount);
+            const botMessage = await generateBotResponse(trimmed);
             setMessages([...nextMessages, botMessage]);
             setIsTyping(false);
         }, 3000);
@@ -46,17 +49,17 @@ export default function ChatBotBox({ name, isOpen }: ChatBotBoxProps) {
 
     return (
         <div
-            className={`${hiddenChat === true ? "w-md" : "w-[200px]"} mx-auto p-4`}
+            className={`${isHidden ? "w-md" : "w-[200px]"} mx-auto p-4`}
         >
             {/* Chat Header Menu */}
             <ChatHeader
                 name={name}
-                hiddenChat={hiddenChat}
-                closeChat={() => setHiddenChat(!hiddenChat)}
+                isHidden={isHidden}
+                closeChat={() => setIsHidden(!isHidden)}
             />
 
             {/* Message Bubbles*/}
-            {hiddenChat === true && (
+            {isHidden && (
                 <>
                     <BubbleMessageContent
                         messages={messages}

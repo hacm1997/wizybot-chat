@@ -1,5 +1,5 @@
 export interface ChatHeaderProps {
     name: string | null,
-    hiddenChat: boolean,
+    isHidden: boolean,
     closeChat: () => void
 }
