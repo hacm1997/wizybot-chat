@@ -6,7 +6,7 @@ import type { Product } from "../types/product";
 export const fetchProducts = async (): Promise<Product[]> => {
   try {
     const response = await fetch(
-      "https://api.wizybot.com/products/demo-product-list"
+      `${import.meta.env.VITE_WIZYBOT_API_URL}/products/demo-product-list`
     );
     if (!response.ok) {
       throw new Error(`Failed to fetch products: ${response.statusText}`);
