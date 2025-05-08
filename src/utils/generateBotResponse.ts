@@ -34,6 +34,7 @@ export const generateBotResponse = async (
         timestamp: getCurrentTime(),
       };
 
+    // Default case if the senteces is different
     default:
       return {
         id: idCount++,
