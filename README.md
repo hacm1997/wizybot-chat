@@ -4,14 +4,6 @@ This is a frontend application built with **React**, **TypeScript**, **Tailwind*
 
 ---
 
-## set environment variables
-
-Create the .env file in the root of the project and add the following environment variable:
-
-```bash
-VITE_WIZYBOT_API_URL=https://api.wizybot.com
-```
-
 ## Prerequisites
 
 Make sure you have the following installed on your system:
@@ -26,6 +18,14 @@ Make sure you have the following installed on your system:
 ```bash
 git clone https://github.com/hacm1997/wizybot-chat.git
 cd your-repo-name
+```
+
+## set environment variables
+
+Create the .env file in the root of the project and add the following environment variable:
+
+```bash
+VITE_WIZYBOT_API_URL=https://api.wizybot.com
 ```
 
 ## Install Dependencies
