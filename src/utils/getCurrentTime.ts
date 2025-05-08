@@ -1,3 +1,4 @@
+// Function for get and format date
 export const getCurrentTime = () => {
   const now = new Date();
   const time = now.toLocaleTimeString([], {
