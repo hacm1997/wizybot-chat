@@ -18,7 +18,7 @@ export default function NameForm({ onSubmit }: NameFormProps) {
     };
 
     return (
-        <div className={styles.customBoxShadow + " bg-white p-4 shadow-lg rounded-xl w-64 space-y-2 flex flex-col items-center"}>
+        <div className={styles.customBoxShadow + " bg-white p-4 shadow-lg rounded-xl w-64 space-y-2 flex flex-col items-center mt-40"}>
             <div className="w-[100px]">
                 <img src="/wizybot-logo.webp" alt="WizyBot-Logo" title="WizyBot" />
             </div>

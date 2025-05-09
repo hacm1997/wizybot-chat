@@ -7,7 +7,7 @@ import { FloatingGroup } from "../../organisms";
 export default function Home() {
     const [name, setName] = useState<string | null>(null);
     return (
-        <div className="h-screen w-full flex flex-col justify-center items-center bg-gray-900 text-center px-4 relative">
+        <div className={`h-screen w-full flex flex-col ${name ? 'sm:pt-10 md:pt-0' : 'pt-48 md:pt-0'} justify-center items-center bg-gray-900 text-center px-4 relative`}>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
                 Welcome to WizyBot chat
             </h1>

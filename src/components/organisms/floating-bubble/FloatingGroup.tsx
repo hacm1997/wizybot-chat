@@ -8,7 +8,7 @@ export default function FloatingGroup({ onNameSubmit, name }: FloatingBubbleProp
     const [isOpen, setIsOpen] = useState(true);
 
     return (
-        <div className="fixed bottom-4 right-4 z-50">
+        <div className={`fixed ${name ? 'sm:top-40' : ''} md:bottom-4 md:right-4 z-50`}>
             {/* Name form */}
             {isOpen && name === null &&
                 <NameForm
