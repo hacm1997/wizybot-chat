@@ -49,7 +49,7 @@ export default function ChatBotBox({ name, isOpen }: ChatBotBoxProps) {
 
     return (
         <div
-            className={`${isHidden ? "md:w-md" : "w-[200px] pt-64"} mx-auto p-4`}
+            className={`${isHidden ? "w-sm md:w-md" : "w-[200px] pt-64"} mx-auto p-4`}
         >
             {/* Chat Header Menu */}
             <ChatHeader
